@@ -4,30 +4,53 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "debian/jessie64"
   config.vm.define "gitlab" do |gitlab|
+  gitlab.vm.network "private_network", ip: ""
+  gitlab.vm.network "forwarded_port", guest: , host:
+  gitlab.vm.synced_folder "./gitlab_home" , "/vagrant"
+  gitlab.vm.provider "virtualbox" do |vm|
+     vb.memory= "512"
+     vb.cpus= "2"
+  end
+  gitlab.vm.provision "shell", path: ""
   end
   config.vm.define "jenkins" do |jenkins|
+  jenkins.vm.network "private_network", ip: ""
+  jenkins.vm.network "forwarded_port", guest:, host:
+  jenkins.vm.synced_folder "./jenkins_home", "/vagrant"
+  jenkins.vm.provider "virtualbox" do |vb| 
+     vb.memory= "512"
+     vb.cpus="2"
+  end
+  jenkins.vm.provision "shell", path: ""
   end
   config.vm.define "sonare" do |sonare|
+  sonare.vm.network "private_network", ip: ""
+  sonare.vm.network "forwarded_port", guest: , host:
+  sonare.vm.synced_folder "./sonare_home", "/vagrant"
+  sonare.vm.provider "virtualbox" do |vb|
+     vb.memory= "512"
+     vb.cpus= "2"
+  end
+  sonare.vm.provision "shell", path: ""
   end
   config.vm.define "web" do |web|
+  web.vm.network "private_network", ip: ""
+  web.vm.network "forwarded_port", guest: , host:
+  web.vm.synced_folder "./web_home", "/vagrant"
+  web.vm.provider "virtualbox" do |vb|
+      vb.memory= "512"
+      vb.cpus= "2"
+  end
+  web.vm.provision "shell", path: ""
   end
   config.vm.define "dbase" do |dbase|
-  end
-  # config.vm.box_check_update = false
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
-  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
-  # config.vm.network "private_network", ip: "192.168.33.10"
-  # config.vm.network "public_network"
-
-  # config.vm.synced_folder "../data", "/vagrant_data"
-  # config.vm.provider "virtualbox" do |vb|
-  #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #   vb.memory = "1024"
-  # end
-  #
-
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   apt-get update
-  #   apt-get install -y apache2
+  dbase.vm.network "private_network", ip: ""
+  dbase.vm.network "forwarded_port", guest: , host:
+  dbase.vm.synced_folder "./dbase_home", "/vagrant"
+  dbase.vm.provider "virtualbox" do |vb|
+       vb.memory= "512"
+       vb.cpus= "2"
+  end 
+  dbase.vm.provision "shell", path: ""
+  end 
 end
