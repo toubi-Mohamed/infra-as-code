@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "debian/jessie64"
   #gitlab Vagrant VM
   config.vm.define "gitlab" do |gitlab|
-  gitlab.vm.network "public_network", ip: ""
+  gitlab.vm.network "public_network", ip: "192.168.202.131"
   #gitlab.vm.network "forwarded_port", guest: , host:
   gitlab.vm.synced_folder "./gitlab_home" , "/vagrant"
   gitlab.vm.provider "virtualbox" do |vm|
@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
   end
   #Jenkins Vagrant VM
   config.vm.define "jenkins" do |jenkins|
-  jenkins.vm.network "public_network", ip: ""
+  jenkins.vm.network "public_network", ip: "192.168.202.132"
   #jenkins.vm.network "forwarded_port", guest:, host:
   jenkins.vm.synced_folder "./jenkins_home", "/vagrant"
   jenkins.vm.provider "virtualbox" do |vb| 
@@ -27,7 +27,7 @@ Vagrant.configure("2") do |config|
   end
   #SonareQube Vagrant VM
   config.vm.define "sonare" do |sonare|
-  sonare.vm.network "public_network", ip: ""
+  sonare.vm.network "public_network", ip: "192.168.202.133"
   #sonare.vm.network "forwarded_port", guest: , host:
   sonare.vm.synced_folder "./sonare_home", "/vagrant"
   sonare.vm.provider "virtualbox" do |vb|
@@ -38,7 +38,7 @@ Vagrant.configure("2") do |config|
   end
   #web server Vagrant VM
   config.vm.define "web" do |web|
-  web.vm.network "public_network", ip: ""
+  web.vm.network "public_network", ip: "192.168.202.134"
  #web.vm.network "forwarded_port", guest: , host:
   web.vm.synced_folder "./web_home", "/vagrant"
   web.vm.provider "virtualbox" do |vb|
@@ -49,7 +49,7 @@ Vagrant.configure("2") do |config|
   end
   #Database Vagrant VM
   config.vm.define "dbase" do |dbase|
-  dbase.vm.network "public_network", ip: ""
+  dbase.vm.network "public_network", ip: "192.168.202.135"
   #dbase.vm.network "forwarded_port", guest: , host:
   dbase.vm.synced_folder "./dbase_home", "/vagrant"
   dbase.vm.provider "virtualbox" do |vb|
