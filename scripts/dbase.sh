@@ -1,4 +1,3 @@
-#!/bin/bash
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password admin'
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password admin'
 apt-get install  -y mysql-server
@@ -19,7 +18,7 @@ echo 'dbconfig-common dbconfig-common/app-password-confirm password vagrant' | d
 echo 'dbconfig-common dbconfig-common/password-confirm password vagrant' | debconf-set-selections
 apt-get install -y phpmyadmin
 #create Data base for sonar
-CREATE DATABASE myproject;
-CREATE USER 'sonare'@'localhost' IDENTIFIED BY 'sonate';
-GRANT ALL PRIVILEGES ON myproject.* TO 'sonare'@'localhost';
+CREATE DATABASE sonare;
+CREATE USER 'sonare'@'localhost' IDENTIFIED BY 'sonare';
+GRANT ALL PRIVILEGES ON sonare.* TO 'sonare'@'localhost';
 FLUSH PRIVILEGES;

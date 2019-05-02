@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
      vb.memory= "512"
      vb.cpus= "2"
   end
-  gitlab.vm.provision "shell", path: "/scripts/gitlab.sh"
+  gitlab.vm.provision "shell", path: "./scripts/gitlab.sh"
   end
   #Jenkins Vagrant VM
   config.vm.define "jenkins" do |jenkins|
@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
      vb.memory= "512"
      vb.cpus="2"
   end
-  jenkins.vm.provision "shell", path: "/scripts/jenkins.sh"
+  jenkins.vm.provision "shell", path: "./scripts/jenkins.sh"
   end
   #SonareQube Vagrant VM
   config.vm.define "sonare" do |sonare|
@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
      vb.memory= "512"
      vb.cpus= "2"
   end
-  sonare.vm.provision "shell", path: "/scripts/sonar.sh"
+  sonare.vm.provision "shell", path: "./scripts/sonar.sh"
   end
   #web server Vagrant VM
   config.vm.define "web" do |web|
@@ -45,7 +45,7 @@ Vagrant.configure("2") do |config|
       vb.memory= "512"
       vb.cpus= "2"
   end
-  web.vm.provision "shell", path: "/scripts/web.sh"
+  web.vm.provision "shell", path: "./scripts/web.sh"
   end
   #Database Vagrant VM
   config.vm.define "dbase" do |dbase|
@@ -56,6 +56,6 @@ Vagrant.configure("2") do |config|
        vb.memory= "512"
        vb.cpus= "2"
   end 
-  dbase.vm.provision "shell", path: "/scripts/dbase.sh"
+  dbase.vm.provision "shell", path: "./scripts/dbase.sh"
   end 
 end
